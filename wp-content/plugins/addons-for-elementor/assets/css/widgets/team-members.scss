@@ -1,0 +1,284 @@
+
+@import "../lae-lib";
+
+/* --------------------------------- Team Members --------------------------------------- */
+
+
+.lae-team-members {
+  clear: both;
+
+  .lae-team-member {
+    .lae-social-list {
+      margin-top: 20px;
+
+      .lae-social-list-item {
+        display: inline;
+        margin: 0 15px 0 0;
+
+        i {
+          color: #999;
+          transition: color .3s ease-in-out 0s;
+
+          &:hover {
+            color: #666;
+          }
+        }
+      }
+    }
+
+    .lae-team-member-details {
+      @include lae-body-font();
+    }
+
+    .lae-team-member-text {
+      .lae-title {
+        @include lae-heading-style();
+      }
+
+      .lae-title-link .lae-title {
+        transition: color .4s ease-in-out 0s;
+      }
+
+      .lae-title-link:hover .lae-title {
+        color: #666;
+      }
+
+      .lae-team-member-position {
+        font-size: 15px;
+        line-height: 24px;
+        font-style: italic;
+        color: #888;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+}
+
+/*-------- Style 1 ----------------*/
+
+.lae-team-members-style1 {
+  .lae-team-member-wrapper {
+    float: left;
+    padding: 10px;
+  }
+
+  .lae-team-member {
+    max-width: 320px;
+    margin: 0 auto 20px;
+
+    .lae-image-wrapper {
+      text-align: center;
+      position: relative;
+
+      img {
+        max-width: 100%;
+        margin: 0 auto 30px;
+        border-radius: 50%;
+        transition: all .3s ease-in-out 0s;
+      }
+
+      .lae-social-list {
+        position: absolute;
+        width: 100%;
+        top: 40%;
+        z-index: 2;
+        @include respond-to-max(767) {
+          position: relative;
+          top: 0;
+        }
+
+        i {
+          font-size: 26px;
+          color: #fff;
+          opacity: 0;
+          transition: all .3s ease-in-out 0s;
+
+          &:hover {
+            color: #ccc;
+          }
+
+          @include respond-to-max(767) {
+            color: #999;
+            opacity: 1;
+            .lae-dark-bg & {
+              color: #888;
+            }
+            &:hover {
+              color: #666;
+
+              .lae-dark-bg & {
+                color: #ccc;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      .lae-image-wrapper {
+        img {
+          filter: brightness(50%);
+          @include respond-to-max(767) {
+            filter: brightness(80%);
+          }
+        }
+
+        .lae-social-list i {
+          opacity: 1;
+        }
+      }
+    }
+
+    .lae-team-member-text {
+      text-align: center;
+      max-width: 650px;
+
+      .lae-title {
+        margin-bottom: 10px;
+      }
+    }
+
+    .lae-social-list {
+      margin: 10px auto;
+    }
+  }
+}
+
+/*-------- Style 2 ----------------*/
+
+.lae-team-members-style2 {
+  position: relative;
+  max-width: 960px;
+
+  .lae-team-member-wrapper {
+    clear: both;
+    margin-top: 100px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    /* Make that flip-flop possible */
+    .lae-image-wrapper {
+      float: left;
+      position: relative;
+
+      img {
+        max-width: 320px;
+        border-radius: 50%;
+        transition: all .3s ease-in-out 0s;
+      }
+    }
+
+    .lae-team-member-text {
+      margin: 10px 0 0;
+      vertical-align: middle;
+      padding-top: 20px;
+
+      .lae-title {
+        margin-bottom: 5px;
+      }
+
+      .lae-team-member-details {
+        margin: 10px 0 10px;
+      }
+
+      .lae-social-list {
+        i {
+          font-size: 24px;
+
+        }
+      }
+    }
+
+    &:hover {
+      .lae-image-wrapper img {
+        filter: brightness(80%);
+      }
+    }
+  }
+
+  .lae-team-member-wrapper:nth-child(odd) {
+    .lae-image-wrapper {
+      margin-right: 50px;
+    }
+  }
+
+  .lae-team-member-wrapper:nth-child(even) {
+    .lae-image-wrapper {
+      float: right;
+      margin-left: 50px;
+    }
+
+    .lae-team-member-text {
+      .lae-title, .lae-team-member-position, .lae-team-member-details, .lae-social-list {
+        text-align: right;
+      }
+    }
+  }
+}
+
+@include respond-to-max(767) {
+  .lae-team-members-style2 {
+    .lae-team-member-wrapper {
+      margin-top: 75px;
+    }
+
+    .lae-team-member {
+      .lae-image-wrapper, .lae-team-member-text {
+        width: 100%;
+        float: none;
+      }
+
+      .lae-image-wrapper {
+        text-align: center;
+
+        img {
+          margin: 0 auto 20px;
+        }
+      }
+
+      .lae-team-member-text {
+        max-width: 400px;
+        margin: 0 auto;
+        padding-top: 0;
+
+        .lae-title, .lae-team-member-position, .lae-team-member-details, .lae-social-list {
+          text-align: center !important;
+        }
+      }
+    }
+  }
+}
+
+.lae-dark-bg .lae-team-members {
+  .lae-team-member {
+    .lae-team-member-details {
+      color: #909090;
+    }
+
+    .lae-team-member-text {
+      .lae-title, .lae-title-link .lae-title {
+        color: #e5e5e5;
+      }
+
+      .lae-title-link:hover .lae-title {
+        color: #b5b5b5;
+      }
+
+      .lae-team-member-position {
+        color: #a5a5a5;
+      }
+
+      .lae-social-list i {
+        color: #aaa;
+
+        &:hover {
+          color: #ccc;
+        }
+      }
+    }
+  }
+}
